@@ -46,7 +46,7 @@ int main()
 			if (input[0] == '<')
 				parcare.masina.push_back(parse_in(input, parc));
 			else if (input[0] == '>')
-				parse_out(input);
+				parse_out(input, parcare);
 		}
 		else
 			cout<<"Nr inmatriculare invalid\n";

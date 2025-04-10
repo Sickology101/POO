@@ -1,13 +1,39 @@
 #include "parcare.h"
 
-void parse_out(string input)
+int get_id(Parcare parcare, string input)
 {
-	if(input[1] == 'B' && input[2] > '0' && input[2] < '9')
+	int index;
+
+	index = 0;
+
+	while (parcare.masina[index].nr_inmat != "")
 	{
-		cout<<"Bucuresti\n";
+		if (parcare.masina[index].nr_inmat == input)
+			return index;
+		index++;
 	}
-	else if (check_city(input))
-		cout<<"Valid\n";
+	return (-1);
+}
+
+void parse_out(string input, Parcare parcare)
+{
+
+	string nr_inmatriculare;
+	int id;
+
+	if (input.size() == 7)
+	{
+		nr_inmatriculare = input.substr(1,6);
+		id = get_id(parcare, nr_inmatriculare);
+		if (id == -1)
+			cout<<"Masina nu a fost gasita\n";
+		else
+			//parcare.masina.erase(id);
+	}
+	else if (input.size() == 8)
+	{
+		nr_inmatriculare = input.substr(1,7);
+	}
 	else
-		cout<<"Invalid\n";
+		cout<<"Nr inmatriculare invalid\n";
 }

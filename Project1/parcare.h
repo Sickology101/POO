@@ -42,7 +42,7 @@ class Parcare{
 };
 
 Masina parse_in(string input, loc *parcare);
-void parse_out(string input);
+void parse_out(string input, Parcare parcare);
 int check_city(string city);
 Masina parse_buc(string input, loc *parcare);
 Masina parse_rest(string input, loc *parcare);
