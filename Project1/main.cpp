@@ -29,13 +29,15 @@ int main()
 
 	while(input[0] != 'x' && input[0] != 'X')
 	{
-		if (input.size() == 8)
+		if (input.size() == 8 || input.size() == 7) 
 		{
 			if (input[0] == '<')
 				cars.push_back(parse_in(input, parcare));
 			else if (input[0] == '>')
 				parse_out(input);
 		}
+		else
+			cout<<"Nr inmatriculare invalid\n";
 		cin>>input;
 	}
 }

@@ -34,8 +34,12 @@ int get_nr(string input, int pos)
 {
 	int nr;
 
-	if (pos == 2)
-		nr = (input[pos] - '0') * 100 + (input[pos + 1] - '0') * 10 + (input[pos + 2] - '0');
+	if (pos == 2 )
+	{
+		nr = (input[pos] - '0') * 10 + (input[pos + 1] - '0');
+		if (input[pos + 2] > '0' && input[pos + 2] < '9')
+			nr = nr * 10 + (input[pos + 2] - '0');
+	}
 	else
 		nr = (input[pos] - '0') * 10 + (input[pos + 1] - '0');
 	return nr;
@@ -45,7 +49,10 @@ string get_letters(string input)
 {
 	string letters;
 
-	letters = input.substr(5,7);
+	if (input[4] > '0' && input[4] < '9')
+		letters = input.substr(5,7);
+	else
+		letters = input.substr(4,6);
 	return letters;
 }
 
@@ -60,6 +67,7 @@ int find_valid(loc *parcare)
 			parcare[index].valid = 0;
 			return index;
 		}
+		index++;
 	}
 	return 0;
 }
