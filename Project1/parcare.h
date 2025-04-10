@@ -21,6 +21,7 @@ class Masina {
 		int nr;
 		string letters;
 		int id;
+		string nr_inmat;
 		Masina(){
 
 		};
@@ -35,9 +36,15 @@ class Masina {
 	}
 };
 
+class Parcare{
+	public:
+		vector<Masina> masina;
+};
+
 Masina parse_in(string input, loc *parcare);
 void parse_out(string input);
 int check_city(string city);
 Masina parse_buc(string input, loc *parcare);
+Masina parse_rest(string input, loc *parcare);
 
 #endif

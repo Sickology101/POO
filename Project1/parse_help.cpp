@@ -2,16 +2,9 @@
 
 int	ft_strcmp(string s1, const char *s2)
 {
-	int	i;
-
-	i = 1;
-	while (i < 2)
-	{
-		if ((s1)[i] != (s2)[i])
-			return (0);
-		i++;
-	}
-	return(1);
+	if (s1[1] == s2[0] && s1[2] == s2[1])
+		return 1;
+	return(0);
 }
 
 int check_city(string city)
@@ -25,9 +18,9 @@ int check_city(string city)
 	|| ft_strcmp(city, "PH") || ft_strcmp(city, "SM") || ft_strcmp(city, "SJ") || ft_strcmp(city, "SB") || ft_strcmp(city, "SV")
 	|| ft_strcmp(city, "TR") || ft_strcmp(city, "TM") || ft_strcmp(city, "TL") || ft_strcmp(city, "VS") || ft_strcmp(city, "VL")
 	|| ft_strcmp(city, "VN"))
-		return 0;
-	else
 		return 1;
+	else
+		return 0;
 }
 
 int get_nr(string input, int pos)
@@ -82,6 +75,34 @@ Masina parse_buc(string input, loc *parcare)
 	letters = get_letters(input);
 	valid = find_valid(parcare);
 	Masina masina( "B", nr, letters, valid);
-	cout<<masina.city<<" "<<masina.nr<<" "<<masina.letters<<" "<<masina.id<<"\n";
+	if (input.size() == 7)
+		masina.nr_inmat = input.substr(1,6);
+	else
+		masina.nr_inmat = input.substr(1,7);
+	return masina;
+}
+
+string get_city(string input)
+{
+	string city;
+
+	city = input.substr(1,2);
+
+	return city;
+}
+
+Masina parse_rest(string input, loc *parcare)
+{
+	int nr;
+	string letters;
+	int valid;
+	string city;
+
+	city = get_city(input);
+	nr = get_nr(input, 3);
+	letters = get_letters(input);
+	valid = find_valid(parcare);
+	Masina masina( city, nr, letters, valid);
+	masina.nr_inmat = input.substr(1,7);
 	return masina;
 }

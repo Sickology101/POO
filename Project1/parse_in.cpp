@@ -9,7 +9,7 @@ Masina parse_in(string input, loc *parcare)
 		masina = parse_buc(input, parcare);
 	}
 	else if (check_city(input))
-		cout<<"Valid\n";
+		masina = parse_rest(input, parcare);
 	else
 		cout<<"Invalid\n";
 	return masina;

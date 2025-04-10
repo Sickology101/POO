@@ -15,14 +15,26 @@ void initialize_parcare(loc *parcare)
 	}
 }
 
+void print_parcare(Parcare parcare)
+{
+	int index;
+
+	index = 0;
+	while(parcare.masina[index].city != "")
+	{
+		cout<<parcare.masina[index].id<<" -> "<<parcare.masina[index].nr_inmat<<"\n";
+		index++;
+	}
+}
+
 int main()
 {
 	string input;
-	vector<Masina> cars;
-	loc parcare[LOC_TOT];
+	Parcare parcare;
+	loc parc[LOC_TOT];
 
 	string instructiuni = "Instructiuni:\n - Folositi \"<\" urmat de numarul de inmatriculare pentru a il inregistra ex: \"<BC12ABC\"\n - Folositi \">\" urmat de numarul de inmatriculare pentru a il elimina ex: \">BC12ABC\"\n - Folositi \"X\" pentru a iesi din program\n";
-	initialize_parcare(parcare);
+	initialize_parcare(parc);
 	cout<<instructiuni;
 
 	cin>>input;
@@ -32,12 +44,13 @@ int main()
 		if (input.size() == 8 || input.size() == 7) 
 		{
 			if (input[0] == '<')
-				cars.push_back(parse_in(input, parcare));
+				parcare.masina.push_back(parse_in(input, parc));
 			else if (input[0] == '>')
 				parse_out(input);
 		}
 		else
 			cout<<"Nr inmatriculare invalid\n";
+		print_parcare(parcare);
 		cin>>input;
 	}
 }
