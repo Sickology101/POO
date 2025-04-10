@@ -9,12 +9,6 @@ using namespace std;
 # define STD_PRICE 1
 #define LOC_TOT 200
 
-typedef struct
-{
-	int id;
-	int valid;
-}		loc;
-
 class Masina {
 	public:
 		string city;
@@ -36,15 +30,24 @@ class Masina {
 	}
 };
 
+class LocParcare{
+	public:
+		int valid;
+		Masina masina;
+};
+
 class Parcare{
 	public:
 		vector<Masina> masina;
+		vector<LocParcare> loc_parcare;
 };
 
-Masina parse_in(string input, loc *parcare);
-void parse_out(string input, Parcare parcare);
+
+
+Masina parse_in(string input, Parcare *parcare);
+void parse_out(string input, Parcare *parcare);
 int check_city(string city);
-Masina parse_buc(string input, loc *parcare);
-Masina parse_rest(string input, loc *parcare);
+Masina parse_buc(string input, Parcare *parcare);
+Masina parse_rest(string input, Parcare *parcare);
 
 #endif

@@ -1,6 +1,6 @@
 #include "parcare.h"
 
-Masina parse_in(string input, loc *parcare)
+Masina parse_in(string input, Parcare *parcare)
 {
 	Masina masina;
 

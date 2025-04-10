@@ -49,15 +49,15 @@ string get_letters(string input)
 	return letters;
 }
 
-int find_valid(loc *parcare)
+int find_valid(Parcare *parcare)
 {
 	int index;
 	index = 0;
 	while (index < LOC_TOT)
 	{
-		if(parcare[index].valid == 1)
+		if(parcare->loc_parcare[index].valid == 1)
 		{
-			parcare[index].valid = 0;
+			parcare->loc_parcare[index].valid = 0;
 			return index;
 		}
 		index++;
@@ -65,7 +65,7 @@ int find_valid(loc *parcare)
 	return 0;
 }
 
-Masina parse_buc(string input, loc *parcare)
+Masina parse_buc(string input, Parcare *parcare)
 {
 	int nr;
 	string letters;
@@ -91,7 +91,7 @@ string get_city(string input)
 	return city;
 }
 
-Masina parse_rest(string input, loc *parcare)
+Masina parse_rest(string input, Parcare *parcare)
 {
 	int nr;
 	string letters;
