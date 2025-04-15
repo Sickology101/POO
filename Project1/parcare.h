@@ -9,6 +9,12 @@ using namespace std;
 # define STD_PRICE 1
 #define LOC_TOT 200
 
+class LocParcare{
+	public:
+		int valid;
+		int id;
+};
+
 class Masina {
 	public:
 		string city;
@@ -16,6 +22,7 @@ class Masina {
 		string letters;
 		int id;
 		string nr_inmat;
+		LocParcare loc;
 		Masina(){
 
 		};
@@ -28,12 +35,6 @@ class Masina {
 	~Masina()
 	{
 	}
-};
-
-class LocParcare{
-	public:
-		int valid;
-		Masina masina;
 };
 
 class Parcare{

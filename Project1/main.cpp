@@ -19,6 +19,7 @@ void initialize_parcare(Parcare *parcare)
 	while (index < LOC_TOT)
 	{
 		(*parcare).loc_parcare.push_back(add_loc());
+		(*parcare).loc_parcare[index].id = index;
 		index++;
 	}
 }
