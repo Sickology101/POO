@@ -1,5 +1,5 @@
-#ifndef PARCARE_H
-# define PARCARE_H
+#ifndef HEADER_H
+# define HEADER_H
 
 #include <iostream>
 #include <string>
