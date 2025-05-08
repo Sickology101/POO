@@ -9,7 +9,7 @@ using namespace std;
 # define STD_PRICE 1
 #define LOC_TOT 200
 
-class LocParcare{
+class LocParcare{ 
 	public:
 		int valid;
 		int id;
